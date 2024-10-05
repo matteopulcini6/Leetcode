@@ -12,12 +12,11 @@ function threeSumClosest(nums: number[], target: number): number {
           
           if(sum < target){
               left++;     // Move the left pointer to the right to increase the sum
-          } else if(sum > target) {
-              right--;    // Move the right pointer to the left to decrease the sum
+              while(left < right && nums[left] === nums[left-1]) left++;
           } else {
-              left++; 
-              right--;
-          }
+              right--;    // Move the right pointer to the left to decrease the sum
+              while(left < right && nums[right] === nums[right+1]) right--;
+          } 
       }
 }
 
